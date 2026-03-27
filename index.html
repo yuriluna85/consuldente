@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consuldente | Odontologia em Feira de Santana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #003366; /* Azul Safira */
+            --secondary: #00a859; /* Verde WhatsApp / Sucesso */
+            --light: #f4f7f6;
+            --dark: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--primary);
+            margin-left: 25px;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn-cta {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,168,89,0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            background: #008f4c;
+        }
+
+        /* Especialistas */
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .dentists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dentist-card {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .dentist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .dentist-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Pagamentos e Convênios */
+        .payment-info {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Localização */
+        .contact-info {
+            background: var(--white);
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Consuldente</div>
+        <ul class="nav-links">
+            <li><a href="#especialistas">Especialistas</a></li>
+            <li><a href="#convenios">Convênios</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <h1>Excelência em Saúde Bucal</h1>
+        <p>Atendimento humanizado e técnica de alta performance no coração de Feira de Santana. Recupere a confiança do seu sorriso hoje.</p>
+        <a href="https://wa.me/557536231660" class="btn-cta"><i class="fab fa-whatsapp"></i> Agendar Agora</a>
+    </section>
+
+    <section id="especialistas" class="section">
+        <h2>Nossos Especialistas</h2>
+        <div class="dentists-grid">
+            <div class="dentist-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Dr. Adilson Carneiro de Almeida</h3>
+                <p>Odontólogo experiente focado em saúde integrada e reabilitação oral.</p>
+            </div>
+            <div class="dentist-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Dr. Rodrigo de Oliveira Luna e Almeida</h3>
+                <p>Especialista em odontologia moderna, estética e precisão clínica.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="convenios" class="section payment-info">
+        <h2>Planos e Facilidades</h2>
+        <div class="dentists-grid">
+            <div>
+                <h3>Convênios Atendidos</h3>
+                <p>Particular | Odonto System</p>
+                <p><small>(Demais convênios, favor consultar via telefone)</small></p>
+            </div>
+            <div>
+                <h3>Formas de Pagamento</h3>
+                <p>Cartões de Débito, Crédito e Cheques.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="section contact-info">
+        <h2>Onde Estamos</h2>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Getúlio Vargas, Ed. Ana Müller Falcão, 5º andar, Sala 504.</p>
+        <p>Feira de Santana - Bahia</p>
+        <br>
+        <h3>Contato: <strong>(75) 3623-1660</strong></h3>
+    </section>
+
+    <a href="https://wa.me/557536231660" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer style="text-align: center; padding: 20px; background: #eee;">
+        <p>© 2026 Consuldente Odontologia. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
