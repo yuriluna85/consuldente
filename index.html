@@ -15,11 +15,25 @@
             --light: #f8f9fa;
             --dark: #2c3e50;
             --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { color: var(--dark); line-height: 1.6; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
 
         /* Header */
         header {
@@ -31,18 +45,40 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .logo { font-weight: 700; font-size: 1.6rem; color: var(--primary); letter-spacing: 1px; }
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li a { text-decoration: none; color: var(--primary); margin-left: 20px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
-        .nav-links li a:hover { color: var(--accent); }
 
-        /* Hero */
+        .logo {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--primary);
+            margin-left: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), 
                         url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070') no-repeat center center/cover;
-            height: 70vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -51,46 +87,139 @@
             color: var(--white);
             padding: 0 20px;
         }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 25px; font-weight: 300; }
 
-        /* Especialistas */
-        .section { padding: 80px 10%; text-align: center; }
-        .section h2 { color: var(--primary); margin-bottom: 40px; font-size: 2rem; }
-        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* Especialistas - NOVO DESIGN (FOTOS QUADRADAS) */
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 50px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
+
         .dentist-container {
             display: flex;
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
         }
+
         .dentist-card {
             background: var(--white);
-            border-radius: 20px;
-            padding: 30px;
-            width: 320px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            width: 350px;
+            overflow: hidden; /* Garante que a foto respeite as bordas arredondadas do card */
+            box-shadow: var(--shadow);
             transition: 0.3s;
+            text-align: left; /* Alinhamento do texto dentro do card */
         }
-        .dentist-card:hover { transform: translateY(-10px); }
-        .dentist-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid var(--light);
-        }
-        .dentist-card h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
 
-        /* Informações & Pagamento */
-        .info-box { background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 10%; }
-        .info-card { padding: 20px; }
-        .info-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+        .dentist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* AJUSTE DAS FOTOS PARA O FORMATO ORIGINAL (QUADRADO) */
+        .dentist-img-container {
+            width: 100%;
+            height: 300px; /* Define uma altura padrão para os cards ficarem alinhados */
+            overflow: hidden;
+        }
+
+        .dentist-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Mostra a foto inteira, sem cortes nos rostos */
+            background-color: var(--light); /* Fundo sutil caso a foto não preencha o container */
+        }
+
+        .dentist-info {
+            padding: 25px;
+        }
+
+        .dentist-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .dentist-info p {
+            font-size: 0.95rem;
+            color: var(--dark);
+            font-weight: 300;
+        }
+
+        /* Informações, Planos e Contato */
+        .info-box {
+            background: var(--light);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 60px 10%;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
 
         /* Localização e Botões */
-        .btn-wa { background: var(--secondary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; }
-        .btn-wa:hover { background: #1ebd5b; transform: scale(1.05); }
+        .btn-wa {
+            background: var(--secondary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-wa:hover {
+            background: #1ebd5b;
+            transform: scale(1.05);
+        }
 
         .whatsapp-float {
             position: fixed;
@@ -110,11 +239,24 @@
             text-decoration: none;
         }
 
-        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
+        footer p {
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Responsividade */
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
             .nav-links { display: none; }
+            .section { padding: 40px 5%; }
+            .dentist-card { width: 100%; }
         }
     </style>
 </head>
@@ -130,8 +272,8 @@
     </header>
 
     <section class="hero">
-        <h1>Saúde Bucal de Excelência</h1>
-        <p>Cuidado especializado com Dr. Adilson Carneiro e Dr. Rodrigo Luna no Ed. Ana Müller Falcão.</p>
+        <h1>Excelência Odontológica</h1>
+        <p>Atendimento especializado com Dr. Adilson Carneiro e Dr. Rodrigo Luna na Av. Getúlio Vargas.</p>
         <a href="https://wa.me/5575999062195" class="btn-wa"><i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp</a>
     </section>
 
@@ -139,14 +281,22 @@
         <h2>Nossos Odontólogos</h2>
         <div class="dentist-container">
             <div class="dentist-card">
-                <img src="https://github.com/yuriluna85/consuldente/blob/main/DrAdilson.jpg?raw=true" alt="Dr. Adilson Carneiro de Almeida" class="dentist-img">
-                <h3>Dr. Adilson Carneiro de Almeida</h3>
-                <p>Comprometido com a saúde e o bem-estar dos pacientes através de uma odontologia ética e precisa.</p>
+                <div class="dentist-img-container">
+                    <img src="https://github.com/yuriluna85/consuldente/blob/main/DrAdilson.jpg?raw=true" alt="Dr. Adilson Carneiro de Almeida" class="dentist-img">
+                </div>
+                <div class="dentist-info">
+                    <h3>Dr. Adilson Carneiro de Almeida</h3>
+                    <p>Comprometido com a saúde bucal e o bem-estar através de uma odontologia ética, precisa e acolhedora.</p>
+                </div>
             </div>
             <div class="dentist-card">
-                <img src="https://github.com/yuriluna85/consuldente/blob/main/DrRodrigo.jpg?raw=true" alt="Dr. Rodrigo de Oliveira Luna e Almeida" class="dentist-img">
-                <h3>Dr. Rodrigo de Oliveira Luna e Almeida</h3>
-                <p>Especialista focado em resultados modernos, estética e funcionalidade para o seu sorriso.</p>
+                <div class="dentist-img-container">
+                    <img src="https://github.com/yuriluna85/consuldente/blob/main/DrRodrigo.jpg?raw=true" alt="Dr. Rodrigo de Oliveira Luna e Almeida" class="dentist-img">
+                </div>
+                <div class="dentist-info">
+                    <h3>Dr. Rodrigo de Oliveira Luna e Almeida</h3>
+                    <p>Especialista focado em resultados modernos, unindo estética e funcionalidade para transformar o seu sorriso.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -155,32 +305,33 @@
         <div class="info-card">
             <i class="fas fa-file-medical"></i>
             <h3>Planos Atendidos</h3>
-            <p>Particular e <strong>Odonto System</strong>.<br><small>Outros convênios: consulte-nos.</small></p>
+            <p>Atendimento Particular e credenciamento <strong>Odonto System</strong>.</p>
+            <p><small>(Outros convênios, consulte disponibilidade).</small></p>
         </div>
         <div class="info-card">
             <i class="fas fa-credit-card"></i>
-            <h3>Pagamento Facilitado</h3>
-            <p>Aceitamos Cheques, Cartões de Débito e Crédito.</p>
+            <h3>Pagamento</h3>
+            <p>Aceitamos Cheques, Cartões de Débito e Crédito para sua facilidade.</p>
         </div>
         <div class="info-card">
-            <i class="fas fa-phone-alt"></i>
-            <h3>Telefones</h3>
-            <p>Fixo: (75) 3623-1660<br>WhatsApp: (75) 99906-2195</p>
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Contatos</h3>
+            <p><strong>Fixo:</strong> (75) 3623-1660<br><strong>WhatsApp:</strong> (75) 99906-2195</p>
         </div>
     </section>
 
     <section id="contato" class="section">
-        <h2>Onde nos encontrar</h2>
-        <p><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Av. Getúlio Vargas, Ed. Ana Müller Falcão, 5º andar, sala 504.</p>
-        <p>Feira de Santana - Bahia</p>
+        <h2>Localização</h2>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Ed. Ana Müller Falcão, 5º andar, sala 504.</p>
+        <p>Av. Getúlio Vargas, Feira de Santana - BA</p>
         <div style="margin-top: 30px;">
             <a href="tel:7536231660" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-right: 20px;">Ligar para Fixo</a>
-            <a href="https://wa.me/5575999062195" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Chamar no WhatsApp</a>
+            <a href="https://wa.me/5575999062195" style="color: var(--secondary); text-decoration: none; font-weight: bold;">WhatsApp</a>
         </div>
     </section>
 
     <footer>
-        <p>Consuldente Odontologia © 2026<br>Ética, Ciência e Sorrisos.</p>
+        <p>Consuldente Odontologia © 2026<br>Ética, Experiência e Sorrisos em Feira de Santana.</p>
     </footer>
 
     <a href="https://wa.me/5575999062195" class="whatsapp-float" target="_blank">
