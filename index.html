@@ -9,69 +9,40 @@
     
     <style>
         :root {
-            --primary: #003366; /* Azul Safira */
-            --secondary: #00a859; /* Verde WhatsApp / Sucesso */
-            --light: #f4f7f6;
-            --dark: #333;
+            --primary: #003366; /* Azul Marinho Profissional */
+            --secondary: #25d366; /* Verde WhatsApp */
+            --accent: #00a8cc; /* Azul Claro para detalhes */
+            --light: #f8f9fa;
+            --dark: #2c3e50;
             --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--white);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: var(--dark); line-height: 1.6; }
 
         /* Header */
         header {
             background: var(--white);
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
+        .logo { font-weight: 700; font-size: 1.6rem; color: var(--primary); letter-spacing: 1px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li a { text-decoration: none; color: var(--primary); margin-left: 20px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        .nav-links li a:hover { color: var(--accent); }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: var(--primary);
-            margin-left: 25px;
-            font-weight: 400;
-            transition: 0.3s;
-        }
-
-        .nav-links li a:hover {
-            color: var(--secondary);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), 
-                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
-            height: 80vh;
+            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070') no-repeat center center/cover;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,166 +51,141 @@
             color: var(--white);
             padding: 0 20px;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-        }
-
-        .btn-cta {
-            background: var(--secondary);
-            color: var(--white);
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,168,89,0.3);
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            background: #008f4c;
-        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 25px; font-weight: 300; }
 
         /* Especialistas */
-        .section {
-            padding: 80px 10%;
-            text-align: center;
+        .section { padding: 80px 10%; text-align: center; }
+        .section h2 { color: var(--primary); margin-bottom: 40px; font-size: 2rem; }
+        
+        .dentist-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
-
-        .dentists-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
         .dentist-card {
-            background: var(--light);
-            padding: 40px;
-            border-radius: 15px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
-
-        .dentist-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .dentist-card i {
-            font-size: 3rem;
-            color: var(--primary);
+        .dentist-card:hover { transform: translateY(-10px); }
+        .dentist-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 20px;
+            border: 5px solid var(--light);
         }
+        .dentist-card h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
 
-        /* Pagamentos e Convênios */
-        .payment-info {
-            background: var(--primary);
-            color: var(--white);
-        }
+        /* Informações & Pagamento */
+        .info-box { background: var(--light); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 10%; }
+        .info-card { padding: 20px; }
+        .info-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
 
-        /* Localização */
-        .contact-info {
-            background: var(--white);
-        }
+        /* Localização e Botões */
+        .btn-wa { background: var(--secondary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; }
+        .btn-wa:hover { background: #1ebd5b; transform: scale(1.05); }
 
-        /* Botão WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
+            background: var(--secondary);
+            color: white;
             width: 60px;
             height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
             text-decoration: none;
         }
 
-        /* Responsividade */
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+
         @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
             .nav-links { display: none; }
-            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Consuldente</div>
+        <div class="logo">CONSULDENTE</div>
         <ul class="nav-links">
-            <li><a href="#especialistas">Especialistas</a></li>
-            <li><a href="#convenios">Convênios</a></li>
-            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#especialistas">Equipe</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#contato">Localização</a></li>
         </ul>
     </header>
 
     <section class="hero">
-        <h1>Excelência em Saúde Bucal</h1>
-        <p>Atendimento humanizado e técnica de alta performance no coração de Feira de Santana. Recupere a confiança do seu sorriso hoje.</p>
-        <a href="https://wa.me/557536231660" class="btn-cta"><i class="fab fa-whatsapp"></i> Agendar Agora</a>
+        <h1>Saúde Bucal de Excelência</h1>
+        <p>Cuidado especializado com Dr. Adilson Carneiro e Dr. Rodrigo Luna no Ed. Ana Müller Falcão.</p>
+        <a href="https://wa.me/5575999062195" class="btn-wa"><i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp</a>
     </section>
 
     <section id="especialistas" class="section">
-        <h2>Nossos Especialistas</h2>
-        <div class="dentists-grid">
+        <h2>Nossos Odontólogos</h2>
+        <div class="dentist-container">
             <div class="dentist-card">
-                <i class="fas fa-user-md"></i>
+                <img src="https://github.com/yuriluna85/consuldente/blob/main/DrAdilson.jpg?raw=true" alt="Dr. Adilson Carneiro de Almeida" class="dentist-img">
                 <h3>Dr. Adilson Carneiro de Almeida</h3>
-                <p>Odontólogo experiente focado em saúde integrada e reabilitação oral.</p>
+                <p>Comprometido com a saúde e o bem-estar dos pacientes através de uma odontologia ética e precisa.</p>
             </div>
             <div class="dentist-card">
-                <i class="fas fa-user-md"></i>
+                <img src="https://github.com/yuriluna85/consuldente/blob/main/DrRodrigo.jpg?raw=true" alt="Dr. Rodrigo de Oliveira Luna e Almeida" class="dentist-img">
                 <h3>Dr. Rodrigo de Oliveira Luna e Almeida</h3>
-                <p>Especialista em odontologia moderna, estética e precisão clínica.</p>
+                <p>Especialista focado em resultados modernos, estética e funcionalidade para o seu sorriso.</p>
             </div>
         </div>
     </section>
 
-    <section id="convenios" class="section payment-info">
-        <h2>Planos e Facilidades</h2>
-        <div class="dentists-grid">
-            <div>
-                <h3>Convênios Atendidos</h3>
-                <p>Particular | Odonto System</p>
-                <p><small>(Demais convênios, favor consultar via telefone)</small></p>
-            </div>
-            <div>
-                <h3>Formas de Pagamento</h3>
-                <p>Cartões de Débito, Crédito e Cheques.</p>
-            </div>
+    <section id="planos" class="info-box">
+        <div class="info-card">
+            <i class="fas fa-file-medical"></i>
+            <h3>Planos Atendidos</h3>
+            <p>Particular e <strong>Odonto System</strong>.<br><small>Outros convênios: consulte-nos.</small></p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-credit-card"></i>
+            <h3>Pagamento Facilitado</h3>
+            <p>Aceitamos Cheques, Cartões de Débito e Crédito.</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Telefones</h3>
+            <p>Fixo: (75) 3623-1660<br>WhatsApp: (75) 99906-2195</p>
         </div>
     </section>
 
-    <section id="localizacao" class="section contact-info">
-        <h2>Onde Estamos</h2>
-        <p><i class="fas fa-map-marker-alt"></i> Av. Getúlio Vargas, Ed. Ana Müller Falcão, 5º andar, Sala 504.</p>
+    <section id="contato" class="section">
+        <h2>Onde nos encontrar</h2>
+        <p><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Av. Getúlio Vargas, Ed. Ana Müller Falcão, 5º andar, sala 504.</p>
         <p>Feira de Santana - Bahia</p>
-        <br>
-        <h3>Contato: <strong>(75) 3623-1660</strong></h3>
+        <div style="margin-top: 30px;">
+            <a href="tel:7536231660" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-right: 20px;">Ligar para Fixo</a>
+            <a href="https://wa.me/5575999062195" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Chamar no WhatsApp</a>
+        </div>
     </section>
 
-    <a href="https://wa.me/557536231660" class="whatsapp-float" target="_blank">
+    <footer>
+        <p>Consuldente Odontologia © 2026<br>Ética, Ciência e Sorrisos.</p>
+    </footer>
+
+    <a href="https://wa.me/5575999062195" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <footer style="text-align: center; padding: 20px; background: #eee;">
-        <p>© 2026 Consuldente Odontologia. Todos os direitos reservados.</p>
-    </footer>
 
 </body>
 </html>
