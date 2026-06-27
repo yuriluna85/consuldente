@@ -30,6 +30,8 @@ A aplicação atua como a vitrine digital da clínica Consuldente, proporcionand
 ## 📜 Log de Atualizações (Changelog)
 
 ### 📅 27/06/2026 - Integração da Marca Oficial no Header
+- 🔖 **Configuração de Favicon (Ícone de Aba)**: Adicionado o ícone da marca (`consuldente.png`) na seção `<head>`, exibindo a logo oficial nas abas de navegadores (Chrome, Safari, Edge) e atalhos de tela inicial.
+- 🎨 **Otimização Visual do Topo**: Removidas as subtags redundantes ("Odontologia" e "Feira de Santana — Bahia") do cabeçalho e do topo da página hero, tornando o visual mais limpo, moderno e focado na marca.
 - 🌐 **Fallback Online**: Adicionado o endereço da imagem online (`https://github.com/yuriluna85/recep-consuldente/blob/main/consuldente.png?raw=true`) como fallback de alta disponibilidade.
 - 🖼️ **Identidade Visual**: Copiado e integrado o arquivo da marca oficial (`consuldente.png`) no cabeçalho fixo da landing page.
 - 🎨 **Aprimoramento de Layout**: Ajuste no CSS para alinhar a imagem da marca com a tipografia elegante em serif.
