@@ -562,7 +562,7 @@
         <div class="dentist-grid">
             <div class="dentist-card reveal">
                 <div class="dentist-img-wrap">
-                    <img src="https://github.com/yuriluna85/consuldente/blob/main/DrAdilson.jpg?raw=true" alt="Dr. Adilson Carneiro de Almeida" class="dentist-img">
+                    <img src="DrAdilson.jpg" alt="Dr. Adilson Carneiro de Almeida" class="dentist-img">
                 </div>
                 <div class="dentist-body">
                     <span class="dentist-badge">Clínico Geral</span>
@@ -572,7 +572,7 @@
             </div>
             <div class="dentist-card reveal reveal-delay-1">
                 <div class="dentist-img-wrap">
-                    <img src="https://github.com/yuriluna85/consuldente/blob/main/DrRodrigo.jpg?raw=true" alt="Dr. Rodrigo de Oliveira Luna e Almeida" class="dentist-img">
+                    <img src="DrRodrigo.jpg" alt="Dr. Rodrigo de Oliveira Luna e Almeida" class="dentist-img">
                 </div>
                 <div class="dentist-body">
                     <span class="dentist-badge">Estética & Reabilitação</span>
@@ -718,10 +718,8 @@
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.opacity = '0.9'; });
-            el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5'; });
-        });
+        document.addEventListener('mouseover', e => { if (e.target.closest('a, button')) { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.opacity = '0.9'; } });
+        document.addEventListener('mouseout', e => { if (e.target.closest('a, button')) { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5'; } });
 
         // Header scroll
         const header = document.getElementById('header');
