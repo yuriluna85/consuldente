@@ -29,6 +29,12 @@ A aplicação atua como a vitrine digital da clínica Consuldente, proporcionand
 
 ## 📜 Log de Atualizações (Changelog)
 
+### 📅 27/06/2026 - Integração da Marca Oficial no Header
+- 🌐 **Fallback Online**: Adicionado o endereço da imagem online (`https://github.com/yuriluna85/recep-consuldente/blob/main/consuldente.png?raw=true`) como fallback de alta disponibilidade.
+- 🖼️ **Identidade Visual**: Copiado e integrado o arquivo da marca oficial (`consuldente.png`) no cabeçalho fixo da landing page.
+- 🎨 **Aprimoramento de Layout**: Ajuste no CSS para alinhar a imagem da marca com a tipografia elegante em serif.
+
+
 ### 📅 27/06/2026 - Otimização Ponytail & Auditoria de Responsividade
 - ⚡ **Otimização Ponytail de Recursos**: Substituição de URLs externas brutas do GitHub pelas imagens locais (`DrAdilson.jpg` e `DrRodrigo.jpg`), garantindo carregamento instantâneo e funcionamento 100% offline.
 - ⚡ **Desempenho JS**: Refatoração dos escutadores de eventos do cursor animado usando deleção global de eventos (`mouseover`/`mouseout`), reduzindo consumo de memória.
